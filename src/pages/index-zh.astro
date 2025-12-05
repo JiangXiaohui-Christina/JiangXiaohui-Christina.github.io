@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">你好 👋</div>
+    <div class="text-5xl font-bold">蒋晓晖</div>
+    <div class="text-3xl py-3 font-bold">博士研究生，经济地理学</div>
+    
+    <div class="py-4">
+      <div class="text-lg font-semibold mb-2">在校时间：周一至周四</div>
+      <div class="text-lg mb-4">xiaohui.jiang@geo.uzh.ch</div>
+    </div>
+    
+    <div class="py-4">
+      <div class="text-2xl font-bold mb-2">研究兴趣</div>
+      <div class="text-lg">
+        我的研究兴趣涵盖产业研究、政治经济学、公共政策、经济地理学、社会学和政治伦理学。
+      </div>
+      <div class="text-lg mt-2">
+        目前我正在研究中国农化产业及其与拉丁美洲和印度的关系。
+      </div>
+    </div>
+    
+    <div class="py-4">
+      <div class="text-2xl font-bold mb-2">博士项目</div>
+      <div class="text-lg font-semibold mb-2">构建除草剂市场：拉丁美洲和亚洲生产重组、农业与环境之间的互动</div>
+      <div class="text-lg">
+        该项目关注快速重组的全球农化产业。总体目标是通过审视新兴市场仿制药生产网络在拉丁美洲农业实践和环境影响方面的变革性作用，分析化学除草剂作为经济和生态变化的特定驱动因素。具体目标包括：（1）了解在关键农药化合物的化学依赖性、效力减弱和环境反馈循环的背景下，除草剂市场是如何形成的；（2）将这些环境挑战置于关键合成除草剂全球生产网络的背景下，重点关注亚洲的上游生产以及拉丁美洲与亚洲之间的关系；（3）深入研究选定的全球南方除草剂"组合"，重点关注"最后一公里"分销和农业使用如何反映和重塑拉丁美洲的环境挑战和经济战略。
+      </div>
+    </div>
+    
+    <div class="py-4">
+      <div class="text-2xl font-bold mb-2">教育背景</div>
+      <div class="text-lg"><b>2022年至今：</b> 苏黎世大学 - 经济地理学博士</div>
+      <div class="text-lg"><b>2020-2022：</b> 香港科技大学 - 公共政策硕士</div>
+      <div class="text-lg"><b>2019-2020：</b> 香港科技大学 - 全球中国研究硕士</div>
+      <div class="text-lg"><b>2016-2020：</b> 日本早稻田大学 - 全球政治经济学学士</div>
+    </div>
+    
+    <div class="py-4">
+      <div class="text-2xl font-bold mb-2">Publications</div>
+      <div class="text-lg">
+        <div class="font-semibold mb-1">- Conjunctural crises and restructuring of south–south production networks: the example of the Chinese pesticide industry Open Access</div>
+        <div class="text-gray-600 mb-2">Xiaohui Jiang, Christian Berndt, Tomás Palmisano, Li Li</div>
+        <div class="text-sm text-gray-500 mb-1">Journal of Economic Geography, lbaf042, https://doi.org/10.1093/jeg/lbaf042</div>
+        <div class="text-sm text-gray-500 mb-1">Published: 25 October 2025</div>
+        <div class="text-sm text-gray-500">Article history: <a href="https://academic.oup.com/joeg/advance-article/doi/10.1093/jeg/lbaf042/8301315" class="text-blue-600 hover:text-blue-800 underline" target="_blank">https://academic.oup.com/joeg/advance-article/doi/10.1093/jeg/lbaf042/8301315</a></div>
+        <br />
+      </div>
+      <div class="text-lg mb-4">
+        <div class="font-semibold mb-1">- The Effects of Smart-city Related Public-Private Partnership Contracts on Innovation and the Performance of Smart Cities in China</div>
+        <div class="text-gray-600 mb-2">X JIANG, M YARIME</div>
+        <div class="text-sm text-gray-500">2021</div>
+      </div>
+      <br />
+      <div class="text-lg mb-4">
+        <div class="font-semibold mb-1">- 権威主義的価値観の国際比較──世代差に注目して</div>
+        <div class="text-gray-600 mb-2">W JOU, X JIANG</div>
+        <div class="text-sm text-gray-500">日本とアジアの民主主義を測る: アジアンバロメータ調査と日本の21世紀, 236</div>
+        <div class="text-sm text-gray-500">2021</div>
+      </div>
+      
+    </div>
+    
+    <div class="mt-8">
+      <a href="/CV_xiaohui_2025.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        查看完整简历
+      </a>
+      <a href="/" class="btn btn-outline ml-5">
+        English Version
+      </a>
+    </div>
+  </div>
+</BaseLayout>
